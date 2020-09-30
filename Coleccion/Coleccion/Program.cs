@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Coleccion
@@ -88,68 +90,115 @@ namespace Coleccion
             //    Console.WriteLine("Clave" + item.Key + " Valor  " + item.Value);
             //}
 
-            List<int> numeros = new List<int>();
-            numeros.Add(1);
-            numeros.Add(2);
-            numeros.Add(3);
-            numeros.Add(4);
-            numeros.Add(4);
-            numeros.Add(4);
-            numeros.Add(4);
-            numeros.Add(4);
-            numeros.Add(5);
-            numeros.Add(6);
+            //List<int> numeros = new List<int>();
+            //numeros.Add(1);
+            //numeros.Add(2);
+            //numeros.Add(3);
+            //numeros.Add(4);
+            //numeros.Add(4);
+            //numeros.Add(4);
+            //numeros.Add(4);
+            //numeros.Add(4);
+            //numeros.Add(5);
+            //numeros.Add(6);
 
-            foreach (var i in numeros)
+            //foreach (var i in numeros)
+            //{
+            //    Console.WriteLine("Dato "+ i+ " Posicion "+numeros.IndexOf(i));
+            //}
+
+            //Console.WriteLine("Con un for basico "+Environment.NewLine);
+
+            //for (int i = 0; i < numeros.Count; i++)
+            //{
+            //    Console.WriteLine("Dato " + i + " Posicion " + numeros[i]);
+            //}
+
+            //Console.WriteLine("Imprimir inverso la lista ");
+            //Console.WriteLine();
+            //numeros.Reverse();
+
+            //for (int i = 0; i < numeros.Count; i++)
+            //{
+            //    Console.WriteLine("Dato " + i + " Posicion " + numeros[i]);
+            //}
+
+            //Console.WriteLine("Uso del contains");
+            //if (true)
+            //{
+            //    Console.WriteLine(numeros.Contains(5));
+            //}
+
+            //Console.WriteLine("Filtrado de datos con expresion lambda");
+
+            //List<int> datos = numeros.FindAll(x => x == 1);
+            //foreach (var item in datos)
+            //{
+            //    Console.WriteLine("Elementos filtrados "+item);
+            //}
+
+            //List<Persona> per = new List<Persona>();
+            //Persona p1 = new Persona("10", "Roberto");
+            //Persona p2 = new Persona("15", "Pedro");
+            //Persona p3 = new Persona("20", "Juan");
+
+            //per.AddRange(new Persona[]{ p1, p2, p3 });
+
+            //Console.ReadKey();
+
+
+            ///*Investigar   sobre expresiones delegados y predicados  expresiones lamda
+            // 10 ejemplos de cada uno de ellos 
+            //Jueves 08/10/2020
+            // */
+           
+            LinkedList<string> letras = new LinkedList<string>();
+            letras.AddLast("a");
+            letras.AddLast("b");
+            letras.AddLast("c");
+            letras.AddLast("d");
+            letras.AddLast("d");
+            letras.AddLast("d");
+            letras.AddLast("d");
+            letras.AddFirst("10");
+            letras.AddLast("11");
+
+            foreach (var x in letras)
             {
-                Console.WriteLine("Dato "+ i+ " Posicion "+numeros.IndexOf(i));
+                Console.Write(" - "+ x);
             }
 
-            Console.WriteLine("Con un for basico "+Environment.NewLine);
+            Console.WriteLine("Cantidad de elementos de la lista "+ letras.Count() +Environment.NewLine);
 
-            for (int i = 0; i < numeros.Count; i++)
+            LinkedListNode<string> elemento = letras.Find("c");
+            letras.AddAfter(elemento, "hola1");
+            letras.AddBefore(elemento, "hola2");
+
+            Console.WriteLine("Con elementos antes y despues de la C ");
+
+            foreach (var x in letras)
             {
-                Console.WriteLine("Dato " + i + " Posicion " + numeros[i]);
+                Console.Write(" - " + x);
             }
+            Console.WriteLine("Encontrando elementos en el arreglo");
+
+            int encontrar = letras.Count(e =>e=="d");
+            Console.WriteLine("la letra d se encontro : "+ encontrar+ " veces ");
+
+            Console.WriteLine("Agregado otro nodo al arreglo  " + Environment.NewLine);
+
+            LinkedListNode<string> factor = new LinkedListNode<string>("factor");
+            letras.AddLast(factor);
+            Console.WriteLine("Recorriendo el arreglo ");
             
-            Console.WriteLine("Imprimir inverso la lista ");
-            Console.WriteLine();
-            numeros.Reverse();
 
-            for (int i = 0; i < numeros.Count; i++)
+            for (LinkedListNode<string> nodo =letras.First; nodo!=null;nodo=nodo.Next )
             {
-                Console.WriteLine("Dato " + i + " Posicion " + numeros[i]);
+                Console.Write(" - "+ nodo.Value);
             }
 
-            Console.WriteLine("Uso del contains");
-            if (true)
-            {
-                Console.WriteLine(numeros.Contains(5));
-            }
 
-            Console.WriteLine("Filtrado de datos con expresion lambda");
-
-            List<int> datos = numeros.FindAll(x => x == 1);
-            foreach (var item in datos)
-            {
-                Console.WriteLine("Elementos filtrados "+item);
-            }
-
-            List<Persona> per = new List<Persona>();
-            Persona p1 = new Persona("10", "Roberto");
-            Persona p2 = new Persona("15", "Pedro");
-            Persona p3 = new Persona("20", "Juan");
-
-            per.AddRange(new Persona[]{ p1, p2, p3 });
-            
             Console.ReadKey();
-
-
-            /*Investigar   sobre expresiones delegados y predicados  expresiones lamda
-             10 ejemplos de cada uno de ellos 
-            Jueves 08/10/2020
-             */
-
 
         }
         public static void imprimirPila(IEnumerable coleccion) {
