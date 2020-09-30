@@ -64,32 +64,92 @@ namespace Coleccion
             //Console.WriteLine(pila.Contains("Hola1"));
 
 
-            Dictionary<int, string> alumnos = new Dictionary<int, string>();
-            alumnos.Add(1, "Andres");
-            alumnos.Add(2, "Juan");
-            alumnos.Add(3, "Pedro");
-            alumnos.Add(4, "Ana");
-            alumnos.Add(5, "Kathia");
+            //Dictionary<int, string> alumnos = new Dictionary<int, string>();
+            //alumnos.Add(1, "Andres");
+            //alumnos.Add(2, "Juan");
+            //alumnos.Add(3, "Pedro");
+            //alumnos.Add(4, "Ana");
+            //alumnos.Add(5, "Kathia");
 
-            foreach  (KeyValuePair<int, string> e in alumnos)
+            //foreach  (KeyValuePair<int, string> e in alumnos)
+            //{
+            //    Console.WriteLine("Clave" + e.Key+ " Valor  "+e.Value );
+            //}
+            //Console.WriteLine("Recorriendo con foreach con var"+Environment.NewLine);
+            //foreach (var item in alumnos)
+            //{
+            //    Console.WriteLine("Clave" + item.Key + " Valor  " + item.Value);
+            //}
+            //alumnos.Remove(2);
+
+            //Console.WriteLine("Recorriendo con un elemento eliminado" + Environment.NewLine);
+            //foreach (var item in alumnos)
+            //{
+            //    Console.WriteLine("Clave" + item.Key + " Valor  " + item.Value);
+            //}
+
+            List<int> numeros = new List<int>();
+            numeros.Add(1);
+            numeros.Add(2);
+            numeros.Add(3);
+            numeros.Add(4);
+            numeros.Add(4);
+            numeros.Add(4);
+            numeros.Add(4);
+            numeros.Add(4);
+            numeros.Add(5);
+            numeros.Add(6);
+
+            foreach (var i in numeros)
             {
-                Console.WriteLine("Clave" + e.Key+ " Valor  "+e.Value );
+                Console.WriteLine("Dato "+ i+ " Posicion "+numeros.IndexOf(i));
             }
-            Console.WriteLine("Recorriendo con foreach con var"+Environment.NewLine);
-            foreach (var item in alumnos)
+
+            Console.WriteLine("Con un for basico "+Environment.NewLine);
+
+            for (int i = 0; i < numeros.Count; i++)
             {
-                Console.WriteLine("Clave" + item.Key + " Valor  " + item.Value);
+                Console.WriteLine("Dato " + i + " Posicion " + numeros[i]);
             }
-            alumnos.Remove(2);
+            
+            Console.WriteLine("Imprimir inverso la lista ");
+            Console.WriteLine();
+            numeros.Reverse();
 
-            Console.WriteLine("Recorriendo con un elemento eliminado" + Environment.NewLine);
-            foreach (var item in alumnos)
+            for (int i = 0; i < numeros.Count; i++)
             {
-                Console.WriteLine("Clave" + item.Key + " Valor  " + item.Value);
+                Console.WriteLine("Dato " + i + " Posicion " + numeros[i]);
             }
 
+            Console.WriteLine("Uso del contains");
+            if (true)
+            {
+                Console.WriteLine(numeros.Contains(5));
+            }
 
+            Console.WriteLine("Filtrado de datos con expresion lambda");
+
+            List<int> datos = numeros.FindAll(x => x == 1);
+            foreach (var item in datos)
+            {
+                Console.WriteLine("Elementos filtrados "+item);
+            }
+
+            List<Persona> per = new List<Persona>();
+            Persona p1 = new Persona("10", "Roberto");
+            Persona p2 = new Persona("15", "Pedro");
+            Persona p3 = new Persona("20", "Juan");
+
+            per.AddRange(new Persona[]{ p1, p2, p3 });
+            
             Console.ReadKey();
+
+
+            /*Investigar   sobre expresiones delegados y predicados  expresiones lamda
+             10 ejemplos de cada uno de ellos 
+            Jueves 08/10/2020
+             */
+
 
         }
         public static void imprimirPila(IEnumerable coleccion) {
