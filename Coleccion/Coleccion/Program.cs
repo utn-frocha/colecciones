@@ -147,6 +147,7 @@ namespace Coleccion
 
             /*Investigar   sobre expresiones delegados y predicados  expresiones lamda
              10 ejemplos de cada uno de ellos 
+            Jueves 08/10/2020
              */
 
 
