@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,41 +12,66 @@ namespace Coleccion
     {
         static void Main(string[] args)
         {
-            /*Arreglo unidimencional */
-            int[] numero = new int[3];
-            numero[0] = 10;
-            numero[1] = 20;
-            numero[2] = 30;
+            ///*Arreglo unidimencional */
+            //int[] numero = new int[3];
+            //numero[0] = 10;
+            //numero[1] = 20;
+            //numero[2] = 30;
 
-            Console.WriteLine("Recorriendo el vector ");
-            foreach (int  i in numero)
-            {
-                Console.WriteLine("El elemento es : "+ i+Environment.NewLine);
-            }
+            //Console.WriteLine("Recorriendo el vector ");
+            //foreach (int  i in numero)
+            //{
+            //    Console.WriteLine("El elemento es : "+ i+Environment.NewLine);
+            //}
 
-            /*Arreglo bidimencional o matrices*/
-            int[,] matriz = new int[3, 3];
-            for (int fila = 0; fila < 3; fila++)
-            {
-                for (int col = 0; col < 3; col++)
-                {
-                    Console.WriteLine("Ingrese los numero : ");
-                    matriz[fila, col] = int.Parse(Console.ReadLine());
-                }
-            }
-            Console.Clear();
-            matriz[0, 1] = 20;
-            Console.WriteLine("imprimiento la matriz  ");
-            for (int fila = 0; fila < matriz.GetLength(0); fila++)
-            {
-                for (int col = 0; col < matriz.GetLength(1); col++)
-                {
-                    Console.Write(" " + matriz[fila,col]);
-                }
-                Console.WriteLine();
-            }
+            ///*Arreglo bidimencional o matrices*/
+            //int[,] matriz = new int[3, 3];
+            //for (int fila = 0; fila < 3; fila++)
+            //{
+            //    for (int col = 0; col < 3; col++)
+            //    {
+            //        Console.WriteLine("Ingrese los numero : ");
+            //        matriz[fila, col] = int.Parse(Console.ReadLine());
+            //    }
+            //}
+            //Console.Clear();
+            //matriz[0, 1] = 20;
+            //Console.WriteLine("imprimiento la matriz  ");
+            //for (int fila = 0; fila < matriz.GetLength(0); fila++)
+            //{
+            //    for (int col = 0; col < matriz.GetLength(1); col++)
+            //    {
+            //        Console.Write(" " + matriz[fila,col]);
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            Stack pila = new Stack();
+            pila.Push("Hola1");
+            pila.Push("Hola2");
+            pila.Push("Hola3");
+            pila.Push("Hola4");
+            Console.WriteLine("Datos de la pila :");
+            imprimirPila(pila);
+            Console.WriteLine("Datos eliminar un dato de la pila :");
+            pila.Pop();
+            imprimirPila(pila);
+            Console.WriteLine("Datos siguiente a salir de la pila :");
+            Console.WriteLine( pila.Peek());
+          
+            Console.WriteLine("Existe elemento  :");
+            
+            Console.WriteLine(pila.Contains("Hola1"));
             Console.ReadKey();
 
         }
+        public static void imprimirPila(IEnumerable coleccion) {
+            foreach (Object item in coleccion)
+            {
+                Console.Write(" {0} ",item);
+                Console.WriteLine();
+            }
+        }
+
     }
 }
