@@ -46,22 +46,49 @@ namespace Coleccion
             //    Console.WriteLine();
             //}
 
-            Stack pila = new Stack();
-            pila.Push("Hola1");
-            pila.Push("Hola2");
-            pila.Push("Hola3");
-            pila.Push("Hola4");
-            Console.WriteLine("Datos de la pila :");
-            imprimirPila(pila);
-            Console.WriteLine("Datos eliminar un dato de la pila :");
-            pila.Pop();
-            imprimirPila(pila);
-            Console.WriteLine("Datos siguiente a salir de la pila :");
-            Console.WriteLine( pila.Peek());
-          
-            Console.WriteLine("Existe elemento  :");
-            
-            Console.WriteLine(pila.Contains("Hola1"));
+            //Stack pila = new Stack();
+            //pila.Push("Hola1");
+            //pila.Push("Hola2");
+            //pila.Push("Hola3");
+            //pila.Push("Hola4");
+            //Console.WriteLine("Datos de la pila :");
+            //imprimirPila(pila);
+            //Console.WriteLine("Datos eliminar un dato de la pila :");
+            //pila.Pop();
+            //imprimirPila(pila);
+            //Console.WriteLine("Datos siguiente a salir de la pila :");
+            //Console.WriteLine( pila.Peek());
+
+            //Console.WriteLine("Existe elemento  :");
+
+            //Console.WriteLine(pila.Contains("Hola1"));
+
+
+            Dictionary<int, string> alumnos = new Dictionary<int, string>();
+            alumnos.Add(1, "Andres");
+            alumnos.Add(2, "Juan");
+            alumnos.Add(3, "Pedro");
+            alumnos.Add(4, "Ana");
+            alumnos.Add(5, "Kathia");
+
+            foreach  (KeyValuePair<int, string> e in alumnos)
+            {
+                Console.WriteLine("Clave" + e.Key+ " Valor  "+e.Value );
+            }
+            Console.WriteLine("Recorriendo con foreach con var"+Environment.NewLine);
+            foreach (var item in alumnos)
+            {
+                Console.WriteLine("Clave" + item.Key + " Valor  " + item.Value);
+            }
+            alumnos.Remove(2);
+
+            Console.WriteLine("Recorriendo con un elemento eliminado" + Environment.NewLine);
+            foreach (var item in alumnos)
+            {
+                Console.WriteLine("Clave" + item.Key + " Valor  " + item.Value);
+            }
+
+
             Console.ReadKey();
 
         }
